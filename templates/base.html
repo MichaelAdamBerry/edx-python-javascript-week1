@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="/static/styles.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/e3deaeba31.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,300,500"
+      rel="stylesheet"
+    />
+  </head>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+
+  <body class="{{template}}">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

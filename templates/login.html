@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<div class="status">
+  <div class="container">
+    <p class="form-toggle">
+      Not Registered?
+    </p>
+    <a href="{{url_for('register')}}">Register for a new account</a>
+  </div>
+</div>
+
+<div class="main">
+  <h2>Login to Your Account</h2>
+  <p class="form-instructions">
+    Log in to search for books and leave a review
+  </p>
+  <form class="login-form" method="post">
+    <div>
+      <label for="username">Username</label>
+      <p>
+        <input type="text" name="username" id="username" />
+      </p>
+      <label for="password">Password</label>
+      <p><input type="password" name="password" id="password" /></p>
+      <button>Login</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

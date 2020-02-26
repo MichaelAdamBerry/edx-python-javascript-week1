@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block content %}
+<div class="main">
+  <h2>REVIEW HERE</h2>
+  <div class="book-review">
+    <form action="#" method="POST" id="star_rating">
+      <div>
+        <label for="review_text">What did you think?</label>
+        <textarea
+          id="review_text"
+          name="review_text"
+          rows="5"
+          cols="100"
+        ></textarea>
+      </div>
+      <p>How many stars?</p>
+      <div>
+        <input type="radio" id="one" name="stars" value="1" checked />
+
+        <label for="one">⭐️</label>
+      </div>
+      <div>
+        <input type="radio" id="two" name="stars" value="2" />
+
+        <label for="two">⭐️⭐️</label>
+      </div>
+      <div>
+        <input type="radio" id="three" name="stars" value="3" />
+
+        <label for="three">⭐️⭐️⭐️</label>
+      </div>
+      <div>
+        <input type="radio" name="stars" id="four" value="4" />
+
+        <label for="four">⭐️⭐️⭐️⭐️</label>
+      </div>
+      <div>
+        <input type="radio" id="five" name="stars" value="5" />
+
+        <label for="five">⭐️⭐️⭐️⭐️⭐️</label>
+      </div>
+      <button class="review-btn" type="submit">Submit Review</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}{% block content %}
+<div class="status">
+  <div class="container">
+    <p>Signed in as {{username}}</p>
+    <a href="/logout">Click Here Logout</a>
+  </div>
+</div>
+<div class="main">
+  <h2>Find a Book</h2>
+  <form method="post" class="search-form">
+    <div class="form-container">
+      <div class="form">
+        <label for="title">Title</label>
+        <input
+          id="title"
+          type="radio"
+          name="search_type"
+          value="title"
+          checked
+        />
+        <label for="isbn">ISBN</label>
+        <input id="isbn" type="radio" name="search_type" value="isbn" />
+        <label for="author">Author</label>
+        <input
+          id="author"
+          type="radio"
+          name="search_type"
+          value="primary_author"
+        />
+      </div>
+      <label for="search"></label>
+      <input type="text" id="search" name="search" />
+      <button type="submit">Find Book</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

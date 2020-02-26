@@ -1,0 +1,71 @@
+{% extends "base.html" %}{%block content %}
+<div class="status">
+  <div class="container">
+    <p>Logged in as {{data['u']}}</p>
+    <a href="/logout">Click Here Logout</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="book">
+    <h2>{{data['b']['title'] }} <span>({{data['b']['year']}})</span></h2>
+    <h2>By {{data['b']['primary_author']}}</h2>
+    <p class="center">ISBN# : {{data['b']['isbn']}}</p>
+    <p class="center">
+      <em>Goodreads avg - {{data['b']['average_score']}}/5</em>
+    </p>
+  </div>
+  <hr />
+  {% for i in data['r']%} {% if i['username'] == data['u'] %}
+
+  <h3>Your Review</h3>
+  <div id="user_review">
+    <div class="rev-div">
+      <div class="stars">
+        {% for s in range(i['score']) %}
+        <span>⭐️</span>
+        {% endfor %}
+      </div>
+      <p><em>"{{i['review_text'] | safe}}"</em></p>
+    </div>
+  </div>
+  {% endif %} {% endfor %} {% if data['is_u_r'] == False %}
+
+  <p>
+    You have not reviewed this book yet
+    <a href="/add_review/{{data['b']['isbn']}}">add a review</a>
+  </p>
+
+  {% else %}
+  <div class="">
+    <p id="update">Want to update your review?</p>
+    <form method="post">
+      <button type="submit" name="update" aria-describedby="update">
+        Change Review
+      </button>
+    </form>
+  </div>
+  {% endif %}
+  <div id="review_list">
+    {%if data['r_empty'] == False %}
+    <h3>All Reviews</h3>
+
+    <ul class="book-list">
+      {%for i in data['r']%} {% if not i['username'] == data['u'] %}
+      <li class="rev-div">
+        <div>
+          <h4>{{i['username']}}</h4>
+          <div class="stars">
+            {% for s in range(i['score']) %}
+            <span>⭐️</span>
+            {% endfor %}
+          </div>
+          <p><em>"{{i['review_text'] | safe}}"</em></p>
+        </div>
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

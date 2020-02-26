@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %}List{% endblock %} {% block content
+%}
+<div class="main">
+  <p></p>
+    <em>Showing results for <strong>'{{str}}'</strong> in <strong>{{t}}</strong></em>
+  </p>
+  <ul class="book-list">
+    {% for item in list_items %}
+    <li class="results-list">
+      <p>
+        <strong>{{item.title}}</strong> By {{item.primary_author}}
+        <span class="yr">{{item.year}}</span>
+      </p>
+      <a href="/book/{{item.isbn}}">View Book 🔎</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

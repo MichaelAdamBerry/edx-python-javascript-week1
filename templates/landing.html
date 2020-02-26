@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<div class="main">
+  <h2>Welcome!</h2>
+  <div class="landing">
+    <p>
+      <a href="{{ url_for('login') }}"
+        >Sign In <i class="fas fa-chevron-right"></i
+      ></a>
+      or
+      <a href="{{ url_for('register') }}"
+        >Register<i class="fas fa-chevron-right"></i
+      ></a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
